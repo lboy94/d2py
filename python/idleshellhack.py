@@ -1,5 +1,14 @@
-#! /usr/bin/env python
+''' Copy+pasted from idlelib/PyShell.py, modified to run a simple console.
 
+    The python interpreter started by d2py isn't bound to stdout/in/err. Making
+a Tk window for that stuff is a better idea than using the default console.
+    It raises an issue of detectability - but the entire bot, the way it's
+currently implemented, is trivial to detect and hard to hide. Moving it all
+to a separate process may fix that, but would introduce IPC which doesn't seem
+worth the effort right now.
+
+    Modifications so far: just main() at the very bottom.
+'''
 import os
 import os.path
 import sys

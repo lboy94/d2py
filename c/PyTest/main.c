@@ -66,8 +66,8 @@ DWORD WINAPI runPython(LPVOID lpArg)
 	//mod = PyImport_ImportModule("sys");
 	//dict = PyModule_GetDict(mod);
 	//PyObject_SetAttrString(dict, "argv[0]", Py_BuildValue("s", "C:/Projects/2009 Summer/d2py/python/d2py.dll"));
-	PyRun_SimpleString("import sys");
-	PyRun_SimpleString("sys.argv=['C:/Projects/2009 Summer/d2py/python/d2py.dll']");
+	//PyRun_SimpleString("import sys");
+	//PyRun_SimpleString("sys.argv=['C:/Projects/2009 Summer/d2py/python/d2py.dll']");
 	//init_pyextension();
 	/*
 	mod = PyImport_ImportModule("d2py");

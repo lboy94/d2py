@@ -1,4 +1,10 @@
 from tkinter import *
+''' I tried to put together a simple GUI, but it was turning out pretty crappy.
+Knowing that what I was doing has allready been done, better, didn't help.
+    In the end I just used the IDLE gui. The solution is a dirty hack, but seems
+to work and will do for now.
+    FILE CURRENTLY UNUSED
+'''
 import sys
 
 class Console(Frame):
