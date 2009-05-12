@@ -1,0 +1,27 @@
+Important files and directories:
+
+d2py.py		First file run by engine when DLL is injected into D2. At that
+	point, standard input and output aren't bound and there's no way for
+	Python scripts to give output to the user. This script opens up a
+	console so output can be displayed, then passes control to run.py
+
+startup.py	Further initializes the bot, gets it into a state where
+	modules can be loaded and run.
+
+taskman.py	Task master that queues and runs tasks according to priority,
+	using their built-in yield statements to do the multitasking. Should
+	also collect some timing info, finding average and maximum uninterrupted
+	runtimes for tasks and flagging worst offenders.
+		Is responsible for propagating exceptions throughout task stacks
+	so errors like game drops/realm downs can properly reroute control 
+	logic.
+
+core/*.py	This isn't a module directory and these aren't actual modules.
+	They're mere documentation of built-in functions provided by d2py.dll
+	when it starts the interpreter. An alternate implementation could 
+	actually use these as modules, but this is the way it's currently done.
+
+modules/*.py	Here, the scripts that control the bot are placed. The
+	requirements and suggestions for how script functions are probably in
+	taskman.py
+

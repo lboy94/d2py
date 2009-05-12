@@ -74,8 +74,10 @@ DWORD WINAPI mainThread(LPVOID lpArg)
 
 	// Dirty hack to initialize sys.argv[0], without which tkinter fails completely.
 	// We currently rely on tkinter to serve as stdout.
-	PyRun_SimpleString("import sys");
-	PyRun_SimpleString("sys.argv=['C:/Projects/2009 Summer/d2py/python/d2py.dll']");
+	//
+	// Hum, using the modified PyShell script solves that problem though.
+	//PyRun_SimpleString("import sys");
+	//PyRun_SimpleString("sys.argv=['C:/Projects/2009 Summer/d2py/python/d2py.dll']");
 
 	// Setup is done: let's run the main script file.
 	//
