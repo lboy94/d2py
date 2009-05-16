@@ -11,7 +11,6 @@ def getFunctions():
     for (path, dirs, files) in os.walk("."):
         for file in files:
             if (file=='tool.ExtractFunctions.py'): continue
-            
             print(file+':')
             f = open(file, 'rt')
             for line in f:
