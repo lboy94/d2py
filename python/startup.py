@@ -1,26 +1,29 @@
 
+def testnamedir():
+    "A useless test function."
+    print('Global dir:'); dir()
+    print("Name:", __name__)
+
 def testbuiltins():
-    #import time
-    #time.sleep(1)
-     
-    import durp
-     
-    print("Testing some simple builtins:")
-    print('\tGlobal dir: ',dir())
-    print("\tName:", __name__)
-    print('\tdurp.dir:',dir(durp))
-    print('\tdurp.doc:',durp.__doc__)
-    print('\tRunning functions in durp:')
-    n = 1;
-    for i in range(5): n = durp.inc(n)
-    print('\tDone!')
+    "Tests that the built-in 'template' module functions correctly."
+    print("Testing built-in 'template' module:");
+    import template
+    print("\t", template.__doc__)
+    print("\t", template.test.__doc__)
+    print("\t5++ is", template.test(5))
 
 if __name__=='__main__':
-    # Set up config:
-    # TODO
+    testnamedir()
+    testbuiltins()
+
+    # Load configuration:
+    import config
+    config.load()
     # Set up taskman:
+    import taskman
     # TODO
     # Push first task to taskman:
     # TODO
 
-    testbuiltins()
+
+    

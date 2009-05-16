@@ -1,16 +1,22 @@
 #include <Python.h>
 #include <windows.h>
-
+// Pretty sure everything here is done in Engine... Going to keep it for now
+// as a very simple (if uncommented/messy) example of exposing C functions to 
+// Python running inside C program.
 #pragma comment(lib, "python30")
-/* now a method we need to expose to Python */
+
+// Pure C function that we'd like to call from python.
+// But how?
 long inc(long i) {
 	printf("inc called on: %d\n", i);
 	return ++i;
 }
 
-/* and the magic that exposes it - a builtin module */
-/* first, the wrapper function */
-static PyObject *py_inc(PyObject *self, PyObject *args)
+// Python-object wrapper for inc
+#define PY_WRAPPER(funcName) static PyObject *py_##funcName##(PyObject *self, PyObject *args)
+
+//static PyObject *py_inc(PyObject *self, PyObject *args)
+PY_WRAPPER(inc)
 {
   long i;
   if (!PyArg_ParseTuple(args, "l", &i))

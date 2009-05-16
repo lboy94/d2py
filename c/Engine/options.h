@@ -2,9 +2,10 @@
 #define _OPTIONS_H_
 
 // Opens a console window for D2 if defined. Useful to printf
-// debug data to.
+// debug data to from C. Made redundant for actual bot use by 
+// nice Tk Python windows.
 //
-// Default value: undefined
-#define MAKE_DEBUG_CONSOLE 1
+// Default: undefined
+#define MAKE_DEBUG_CONSOLE
 
 #endif
