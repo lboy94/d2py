@@ -10,38 +10,54 @@
 // before Py_Initialize() is called. PyInit_template is, naturally, an 
 // initialization function.
 //
+#define MODULE me
 
-#define MODULE template
 #include <Python.h>
 #include "module.h"
-
+#include "Functions.h"
+#include "Pointers.h"
+#include "Structs.h"
+#include "Levels.h"
 //////////////////
 // Name: not a string!
 
 //////////////////
 // Methods:
 
-// Example C function that we'd like to expose to Python scripts we run.
-int test(int i) {printf("The C code may use a different stdout from Python!!!\n", i); return ++i;}
-// Wrapper called py_test for the above function.
-PY_WRAPPER(test)
+PY_WRAPPER(position)
 {
-  int i;
-  if (!PyArg_ParseTuple(args, "l", &i))
-	  return NULL;
-  return Py_BuildValue("l", test(i));
+	UnitAny* me;
+	me = GetPlayerUnit();
+	printf("Got UnitAny: %x\n", me);
+	printf("XY: %d:%d\n",me->wX,me->wY);
+	return Py_BuildValue("(l,l)",me->wX,me->wY);
+}
+
+PY_WRAPPER(location)
+{
+	UnitAny* me;
+	me = GetPlayerUnit();
+	printf("Got UnitAny: %x\n", me);
+	Room1 *pRoom = GetRoomFromUnit(me);
+	DWORD lvl;
+	if(pRoom && pRoom->pRoom2 && pRoom->pRoom2->pLevel)
+		lvl = pRoom->pRoom2->pLevel->dwLevelNo;
+	else 
+		lvl = 0; // unknown
+	printf("Location ID: %d, or %s\n", lvl, levelTable[lvl]);
+	return Py_BuildValue("s",levelTable[lvl]);
 }
 
 
 //////////////////
 // Setup:
 
-
 // List of methods exported by the module.
 static PyMethodDef MODULE_METHODS[] = {
 // Format:
-//	FUNC(string name, name, number of args, __doc__ string),
-	FUNC("test", test, 1, "Returns n+1."),
+//	FUNC(string name, name, arg flags, __doc__ string),
+	FUNC("position", position, 1, "Gives an XY position of the player."),
+	FUNC("location", location, 1, "Locates the player in the world."),
 	// end of list marker
 	{NULL,	NULL} 
 };
@@ -49,7 +65,7 @@ static PyMethodDef MODULE_METHODS[] = {
 // Information about the module itself:
 static struct PyModuleDef MODULE_DEF = {
    PyModuleDef_HEAD_INIT, MODULE_NAME,	
-   "Exports a single function, test(n).", // __doc__ string
+   "See where you are, what your status and attributes are, and say things.", // __doc__ string
    -1,       // size of per-interpreter state of the module,
              //   or -1 if the module keeps state in global variables. 
    MODULE_METHODS
@@ -63,7 +79,7 @@ static struct PyModuleDef MODULE_DEF = {
 // ASIDE: Python 2.x used to use PyImport_AddModule("name") followed by 
 //	PyModule_Create(&module). The change in 3.x essentially gives the C
 //	code a constructor - nice. (Wonder if there's a destructor too?)
-PyMODINIT_FUNC PyInit_template(void) {
+PyMODINIT_FUNC PyInit_me(void) {
 	// Perform C-specific setup.
 	// ...
 	// Perform Python-specific setup.

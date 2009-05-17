@@ -10,6 +10,12 @@
 #include "options.h"
 // Built-in modules:
 #include "template.h"
+#include "me.h"
+
+//#define _CREATE_DEFINITIONS
+#include "Pointers.h"
+#undef _CREATE_DEFINITIONS
+#include "Offsets.h"
 
 #pragma comment(lib, "python30")
 
@@ -26,11 +32,15 @@ DWORD WINAPI mainThread(LPVOID lpArg)
 
 	printf("Main d2py thread starting in process %d.\n", GetProcessId(GetCurrentProcess()));
 	
+	//DefineOffsets();
+	printf("Defineoffsets called.\n");
+
 	//Py_SetProgramName("C:/Projects/2009 Summer/d2py/python/d2py.dll");
 	//Py_SetProgramName("d2py.dll"); // Is this needed? Used to find the operating dir?
 
 	// Register and initialize all modules with the Python interpreter.
 	PyImport_AppendInittab("template", PyInit_template);
+	PyImport_AppendInittab("me", PyInit_me);
 
 
 	Py_Initialize();
