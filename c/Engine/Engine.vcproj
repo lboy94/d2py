@@ -99,7 +99,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				CompileAs="1"
+				CompileAs="2"
 			/>
 			<Tool
 				Name="VCManagedResourceCompilerTool"
@@ -175,6 +175,14 @@
 			Name="Modules"
 			>
 			<File
+				RelativePath=".\me.c"
+				>
+			</File>
+			<File
+				RelativePath=".\me.h"
+				>
+			</File>
+			<File
 				RelativePath=".\module.h"
 				>
 			</File>
@@ -184,6 +192,46 @@
 			</File>
 			<File
 				RelativePath=".\template.h"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="Data"
+			>
+			<File
+				RelativePath=".\Levels.h"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="D2"
+			>
+			<File
+				RelativePath=".\functions.c"
+				>
+			</File>
+			<File
+				RelativePath=".\functions.h"
+				>
+			</File>
+			<File
+				RelativePath=".\macros.h"
+				>
+			</File>
+			<File
+				RelativePath=".\offsets.c"
+				>
+			</File>
+			<File
+				RelativePath=".\offsets.h"
+				>
+			</File>
+			<File
+				RelativePath=".\pointers.h"
+				>
+			</File>
+			<File
+				RelativePath=".\structs.h"
 				>
 			</File>
 		</Filter>

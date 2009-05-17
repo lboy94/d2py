@@ -3,8 +3,8 @@
 // A bunch of shorthand and templating for faster builtin module writing.
 
 // Modules should define MODULE as the module name. (Not a string.)
-#define MODULE_DEF definitionOf##MODULE
-#define MODULE_METHODS methodsOf##MODULE
+#define MODULE_DEF MODULE##Definition
+#define MODULE_METHODS MODULE##Methods
 #define QUOTEME(x) #x
 #define MODULE_NAME QUOTEME(MODULE)
 
