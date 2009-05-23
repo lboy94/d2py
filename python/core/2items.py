@@ -26,6 +26,7 @@ TODO: type
 			(condition filter used for repairs)
 
     'id':int    # generic object id
+    'type':int  # items are 3 or whatever: need to have this for some funcs?
     'location':x is in:
         --- worn by someone
         amulet, body, right primary, left primary, right secondary,

@@ -33,19 +33,35 @@ def location():
 
 EFFECTS: returns a string specifying the act and area the player is in.
     '''
-    return _me.location()
+    from core import data
+    return data.levels[_me.location()]
 
 def id():
     ''' Returns the player ID.
 
 EFFECTS: returns an unsigned int specifying the player's unique identifier.
+TODO: remove this in favor of a stat[] dictionary or something
     '''
     return _me.id()
 
-def classlevelnamestatsskills():
-    ''' Durrr? '''
-    print("Function not implemented!")
-    
+# Can't be filled on startup: must be passed to C via call in startup,
+# then filled when the data becomes available?
+# WARNING: delayed initialization
+stat = {
+    'id':12345,
+    'name':'Johnny',
+    'class':'Sorceress',
+    'level':99
+    'stats':{'str':10, 'dex':10, 'vit':10, 'energy':90}
+    'skills':{'Fire Ball':20}
+    }
+
+
+def mercenary():
+    "Return merc id?"
+    pass
+
+
 #
 # Modifiers, instant:
 # 

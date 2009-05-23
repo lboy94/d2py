@@ -11,6 +11,7 @@ TODO: type
 		filter distance, flags, type
 
     'id':int    # generic object id
+    'type':int  # always equal to 1 for NPCs, but needed for some funcs?
     'xy':(int,int)
     'hp':float
     'alive':boolean
