@@ -18,6 +18,8 @@
 #include "Pointers.h"
 #include "Structs.h"
 #include "Levels.h"
+//#include "Sender.h"
+//#include "keysender.h"
 //////////////////
 // Name: not a string!
 
@@ -30,8 +32,9 @@ PY_WRAPPER(position)
 	me = GetPlayerUnit();
 	printf("Got UnitAny: %x\n", me);
 	printf("XY: %d:%d\n",me->wX,me->wY);
+	//printf("GetUnit?: %d, %d\n", GetUnitX(
 	return Py_BuildValue("(l,l)",me->wX,me->wY);
-}
+}`
 
 PY_WRAPPER(location)
 {
@@ -48,6 +51,46 @@ PY_WRAPPER(location)
 	return Py_BuildValue("s",levelTable[lvl]);
 }
 
+PY_WRAPPER(id)
+{
+	UnitAny* me;
+	me = GetPlayerUnit();
+	printf("Got UnitAny: %x\n", me);
+	
+	return Py_BuildValue("I",me->dwUnitId);
+}
+
+
+/*
+PY_WRAPPER(chat)
+{
+	char* str; 
+	if (!PyArg_ParseTuple(args, "s", &str))
+	  return NULL;
+
+	// Assumes chat window starts closed.
+	typeText("\r"); 
+	Sleep(200);
+	typeText(str);
+	Sleep(200);
+	typeText("\r");
+
+	//sendKeyString(wnd, str);
+
+	//switch(str[0]) {
+	//case '!':
+	//	overheadChat(str+1);
+	//break;
+	//case '/':
+	//	overheadChat(str+1); // Not implemented~~
+	//break;
+	//default:
+	//	gameChat("asdfabcd", 0, str);
+	//}
+
+	return Py_BuildValue("l", 1);
+}
+*/
 
 //////////////////
 // Setup:
@@ -58,6 +101,8 @@ static PyMethodDef MODULE_METHODS[] = {
 //	FUNC(string name, name, arg flags, __doc__ string),
 	FUNC("position", position, 1, "Gives an XY position of the player."),
 	FUNC("location", location, 1, "Locates the player in the world."),
+	FUNC("id", id, 1, "Gets the player id."),
+	////FUNC("chat", chat, 1, "Chats, overhead chats, whispers, and sends battle.net commands."),
 	// end of list marker
 	{NULL,	NULL} 
 };

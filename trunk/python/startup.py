@@ -7,11 +7,11 @@ def testnamedir():
 def testbuiltins():
     "Tests that the built-in 'template' module functions correctly."
     print("Testing built-in 'template' module:");
-    import template
-    print("\t", template.__doc__)
-    print("\t", template.test.__doc__)
-    print("\t5++ is", template.test(5))
-
+    import _template
+    print("\t", _template.__doc__)
+    print("\t", _template.test.__doc__)
+    print("\t5++ is", _template.test(5))
+    
 if __name__=='__main__':
     testnamedir()
     testbuiltins()
@@ -24,6 +24,6 @@ if __name__=='__main__':
     # TODO
     # Push first task to taskman:
     # TODO
-
-
+    print("Ready!")
+    
     

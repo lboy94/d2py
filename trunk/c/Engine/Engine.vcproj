@@ -175,6 +175,14 @@
 			Name="Modules"
 			>
 			<File
+				RelativePath=".\core.c"
+				>
+			</File>
+			<File
+				RelativePath=".\core.h"
+				>
+			</File>
+			<File
 				RelativePath=".\me.c"
 				>
 			</File>
@@ -232,6 +240,30 @@
 			</File>
 			<File
 				RelativePath=".\structs.h"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="Packet Send"
+			>
+			<File
+				RelativePath=".\packetsender.c"
+				>
+			</File>
+			<File
+				RelativePath=".\packetsender.h"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="Keysender"
+			>
+			<File
+				RelativePath=".\keysender.c"
+				>
+			</File>
+			<File
+				RelativePath=".\keysender.h"
 				>
 			</File>
 		</Filter>

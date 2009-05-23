@@ -10,6 +10,7 @@ EFFECTS: returns a large list of all visible NPCs of all types, including
 TODO: type
 		filter distance, flags, type
 
+    'id':int    # generic object id
     'xy':(int,int)
     'hp':float
     'alive':boolean

@@ -25,6 +25,7 @@ TODO: type
 			(ownership includes ground, store)
 			(condition filter used for repairs)
 
+    'id':int    # generic object id
     'location':x is in:
         --- worn by someone
         amulet, body, right primary, left primary, right secondary,
