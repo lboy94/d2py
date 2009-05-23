@@ -34,7 +34,7 @@ PY_WRAPPER(position)
 	printf("XY: %d:%d\n",me->wX,me->wY);
 	//printf("GetUnit?: %d, %d\n", GetUnitX(
 	return Py_BuildValue("(l,l)",me->wX,me->wY);
-}`
+}
 
 PY_WRAPPER(location)
 {
@@ -47,8 +47,14 @@ PY_WRAPPER(location)
 		lvl = pRoom->pRoom2->pLevel->dwLevelNo;
 	else 
 		lvl = 0; // unknown
-	printf("Location ID: %d, or %s\n", lvl, levelTable[lvl]);
-	return Py_BuildValue("s",levelTable[lvl]);
+	//printf("Location ID: %d, or %s\n", lvl, levelTable[lvl]);
+	//return Py_BuildValue("s",levelTable[lvl]);
+	// Rather than doing the int->str conversion in C, we'll do it in Python.
+	// This way, sanity-checks done in Python can use the same data as this conversion.
+	//
+	// Why not do all this in C? Well, 'performance' isn't a reason since I bet the lists are
+	// stored as trees, whereas I'd be lazy and just linearly search arrays.
+	return Py_BuildValue("I",lvl);
 }
 
 PY_WRAPPER(id)
