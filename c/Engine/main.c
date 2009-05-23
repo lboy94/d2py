@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include "options.h"
 // Built-in modules:
+#include "core.h"
 #include "template.h"
 #include "me.h"
 
@@ -39,8 +40,9 @@ DWORD WINAPI mainThread(LPVOID lpArg)
 	//Py_SetProgramName("d2py.dll"); // Is this needed? Used to find the operating dir?
 
 	// Register and initialize all modules with the Python interpreter.
-	PyImport_AppendInittab("template", PyInit_template);
-	PyImport_AppendInittab("me", PyInit_me);
+	PyImport_AppendInittab("_core", PyInit_core);
+	PyImport_AppendInittab("_template", PyInit_template);
+	PyImport_AppendInittab("_me", PyInit_me);
 
 
 	Py_Initialize();
