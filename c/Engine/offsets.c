@@ -1,7 +1,8 @@
 #include <windows.h>
 
 #include "Offsets.h"
-//#include "Patch.h"
+#include "Patch.h"
+#include "offsets.h"
 
 //#include "debug_new.h"
 
@@ -11,7 +12,7 @@
 #define JMP		0xE9
 #define RET		0xC3
 
-/*
+
 void InterceptLocalCode(PatchType type, DWORD addr, DWORD func, size_t len)
 {
 	static BYTE Instruction[] = {INT3, JMP, CALL, NOP, RET};
@@ -79,7 +80,7 @@ void FillDllAddress(Offset& offset)
 {
 	offset.FullAddress = GetDllAddress(offset.DllName, offset.Address);
 }
-*/
+
 
 
 DWORD GetDllAddress(int dll, int Address)
