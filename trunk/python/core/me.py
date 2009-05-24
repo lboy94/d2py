@@ -33,8 +33,8 @@ def location():
 
 EFFECTS: returns a string specifying the act and area the player is in.
     '''
-    from core import data
-    return data.levels[_me.location()]
+    from data import areas
+    return areas.levels[_me.location()]
 
 def id():
     ''' Returns the player ID.
@@ -51,8 +51,8 @@ stat = {
     'id':12345,
     'name':'Johnny',
     'class':'Sorceress',
-    'level':99
-    'stats':{'str':10, 'dex':10, 'vit':10, 'energy':90}
+    'level':99,
+    'stats':{'str':10, 'dex':10, 'vit':10, 'energy':90},
     'skills':{'Fire Ball':20}
     }
 

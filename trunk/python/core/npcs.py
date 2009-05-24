@@ -22,3 +22,5 @@ TODO: type
     'properties':['fanatic','cold enchanted','cold resistant']
     
     '''
+    import _npcs
+    return _npcs.listnpcs()

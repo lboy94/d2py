@@ -1,5 +1,24 @@
-''' Similar to data.py, but item-specific strings.
+'''Master lists of strings.
+
+    Used for conversion between human-readable strings, and the numbers D2
+actually uses. Thus, ORDER IS CRITICAL AND MAY NOT BE CHANGED!
+    Some of these may later get converted to dictionaries, holding extra data
+(act, aura skill, player/monster skill, etc) if it turns out to be necessary
+or useful: keeping it simple is first priority however.
 '''
+
+quality = ["None", "Inferior", "Normal", "Superior", "Magic", "Set", "Rare",
+           "Unique", "Crafted"]
+
+# Look for a way to merge locations+equipped?
+
+locations = ["Unspecified", "Equipped", "Belt", "Ground", "Cursor", "Unknown",
+             "Socketed"]
+
+equipped = ["None", "Helm", "Amulet", "Armor", "Right Hand", "Left Hand",
+            "Right Ring", "Left Ring", "Belt", "Boots", "Gloves",
+            "Right Switch", "Left Switch"]
+
 
 # Someone (ejact or binrapt?) once told me these were wrong but I didn't follow
 # up. Will need to double check.
@@ -168,3 +187,34 @@ sets = ["Civerbs Ward", "Civerbs Icon", "Civerbs Cudgel", "Hsarus Iron Heel",
 "Cow Kings Hoofs", "Najs Puzzler", "Najs Light Plate", "Najs Circlet",
 "Sanders Paragon", "Sanders Riprap", "Sanders Taboo", "Sanders Superstition"
 ]
+
+
+# This will be useful in some form... May need to modify it though.
+_CURRENTLY_NOT_USED_buffers = [
+    "Belt", # comment said it was belt, but is it?
+    "INVALID",
+    "Inventory",
+    "NotACube", # haven't seen this happen...
+    "Their Trade",
+    "5",
+    "My Trade",
+    "7",
+    "Cube",
+    "9",
+    "Stash", 
+    # following values are never actually seen
+    # this section is here so on shop actions, you can add 11 to
+    # the index and get shop-specific results (since this field
+    # means different things depending on whether you're dealing
+    # with player items or shop items)
+    "0" ,
+    "INVALID",
+    "Armor Tab",
+    "Armor Tab Extended",
+    "Weapons Tab", 
+    "Weapons Tab Extended",
+    "2nd Weapons Tab",
+    "2nd Weapons Tab Extended",
+    "Misc Tab",
+    "Misc Tab Extended"
+    ]            

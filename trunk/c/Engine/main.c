@@ -12,11 +12,17 @@
 #include "core.h"
 #include "template.h"
 #include "me.h"
+#include "npc.h"
 
 //#define _CREATE_DEFINITIONS
 #include "Pointers.h"
 #undef _CREATE_DEFINITIONS
 #include "Offsets.h"
+
+#include "Patch.h"
+#include "offsets.h"
+
+#include "npc.h"
 
 #pragma comment(lib, "python30")
 
@@ -33,8 +39,10 @@ DWORD WINAPI mainThread(LPVOID lpArg)
 
 	printf("Main d2py thread starting in process %d.\n", GetProcessId(GetCurrentProcess()));
 	
-	//DefineOffsets();
-	printf("Defineoffsets called.\n");
+	ApplyPatch(Patches[0]);
+	printf("Patch applied.\n");
+	npcTrackerInit();
+	printf("NPC tracker initialized.");
 
 	//Py_SetProgramName("C:/Projects/2009 Summer/d2py/python/d2py.dll");
 	//Py_SetProgramName("d2py.dll"); // Is this needed? Used to find the operating dir?
@@ -43,8 +51,11 @@ DWORD WINAPI mainThread(LPVOID lpArg)
 	PyImport_AppendInittab("_core", PyInit_core);
 	PyImport_AppendInittab("_template", PyInit_template);
 	PyImport_AppendInittab("_me", PyInit_me);
+	PyImport_AppendInittab("_npcs", PyInit_npc);
 
-
+	wchar_t prgname[4];
+	mbstowcs(prgname, "d2py", 4);
+	Py_SetProgramName(prgname);
 	Py_Initialize();
 	printf("Python interpreter and built-in modules initialized.\n");
 

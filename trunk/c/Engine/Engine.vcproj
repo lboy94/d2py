@@ -144,7 +144,7 @@
 	</References>
 	<Files>
 		<Filter
-			Name="Source Files"
+			Name="Main"
 			Filter="cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx"
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
@@ -156,16 +156,16 @@
 				RelativePath=".\main.c"
 				>
 			</File>
+			<File
+				RelativePath=".\main.h"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
-			<File
-				RelativePath=".\main.h"
-				>
-			</File>
 			<File
 				RelativePath=".\options.h"
 				>
@@ -195,19 +195,19 @@
 				>
 			</File>
 			<File
+				RelativePath=".\npc.c"
+				>
+			</File>
+			<File
+				RelativePath=".\npc.h"
+				>
+			</File>
+			<File
 				RelativePath=".\template.c"
 				>
 			</File>
 			<File
 				RelativePath=".\template.h"
-				>
-			</File>
-		</Filter>
-		<Filter
-			Name="Data"
-			>
-			<File
-				RelativePath=".\Levels.h"
 				>
 			</File>
 		</Filter>
@@ -242,9 +242,25 @@
 				RelativePath=".\structs.h"
 				>
 			</File>
+			<Filter
+				Name="Intercept"
+				>
+				<File
+					RelativePath=".\Intercepts.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\Intercepts.h"
+					>
+				</File>
+				<File
+					RelativePath=".\Patch.h"
+					>
+				</File>
+			</Filter>
 		</Filter>
 		<Filter
-			Name="Packet Send"
+			Name="Packets"
 			>
 			<File
 				RelativePath=".\packetsender.c"
@@ -252,6 +268,14 @@
 			</File>
 			<File
 				RelativePath=".\packetsender.h"
+				>
+			</File>
+			<File
+				RelativePath=".\receive.c"
+				>
+			</File>
+			<File
+				RelativePath=".\receive.h"
 				>
 			</File>
 		</Filter>
