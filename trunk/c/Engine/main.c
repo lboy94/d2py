@@ -40,9 +40,9 @@ DWORD WINAPI mainThread(LPVOID lpArg)
 	printf("Main d2py thread starting in process %d.\n", GetProcessId(GetCurrentProcess()));
 	
 	ApplyPatch(Patches[0]);
-	printf("Patch applied.\n");
+	printf("Patched applied...\n");
 	npcTrackerInit();
-	printf("NPC tracker initialized.");
+	printf("NPC tracker initialized...\n");
 
 	//Py_SetProgramName("C:/Projects/2009 Summer/d2py/python/d2py.dll");
 	//Py_SetProgramName("d2py.dll"); // Is this needed? Used to find the operating dir?
@@ -53,11 +53,14 @@ DWORD WINAPI mainThread(LPVOID lpArg)
 	PyImport_AppendInittab("_me", PyInit_me);
 	PyImport_AppendInittab("_npcs", PyInit_npc);
 
+	printf("Modules initialized...\n");
+
 	wchar_t prgname[4];
 	mbstowcs(prgname, "d2py", 4);
 	Py_SetProgramName(prgname);
 	Py_Initialize();
-	printf("Python interpreter and built-in modules initialized.\n");
+	PyEval_InitThreads(); // is it needed?
+	printf("Python interpreter started!\n");
 
 	// Dirty hack to initialize sys.argv[0], without which tkinter fails completely.
 	// We currently rely on tkinter to serve as stdout.

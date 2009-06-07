@@ -313,6 +313,8 @@ Events:
 	networkStillForNSeconds
 	itemDropped
         chatReceived?
+        objectInRange
+        npcInRange
 
 
 # this could be done by filtering owned items of type scroll and interacting

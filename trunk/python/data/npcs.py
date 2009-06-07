@@ -7,6 +7,9 @@ actually uses. Thus, ORDER IS CRITICAL AND MAY NOT BE CHANGED!
 or useful: keeping it simple is first priority however.
 '''
 
+states = ['Unk0', 'Unk1', 'Unk2', 'Unk3', 'Unk4', 'Unk5', 'Alive', 'Unk7',
+          'Dying', 'Dead']
+
 # -1 may signify not being a superunique?
 superuniques = ["Bishibosh", "Bonebreak", "Coldcrow", "Rakanishu", "Treehead WoodFist", 
 "Griswold", "The Countess", "Pitspawn Fouldog", "Flamespike the Crawler", 
