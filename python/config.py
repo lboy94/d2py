@@ -7,5 +7,9 @@ including additional dictionaries.
 global config
 
 def load():
-    config = {'username':'zeiris', 'password':'secret'}
+    config = {
+        'username':'zeiris',
+        'password':'secret',
+        'mingamelength':3   # seconds
+        }
 

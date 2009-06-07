@@ -3,9 +3,9 @@
 +	Author: LordVader
 +	Updated: 11/05/2007
 */
+#include "keysender.h"
 #include <windows.h>
 #include <winable.h>
-#include "keysender.h"
 #include <Stdio.h>
 
 #pragma comment(lib, "User32")
@@ -24,8 +24,8 @@ HWND getWindowByTitle(const char* szTitle)
 
 // Prevents keyboard+mouse from reaching window, but our thread can still use
 // SendInput to pass events.
-void blockInput(HWND hWnd, int bState) {SendMessageA(hWnd,BlockInput(bState),0,0);}
-
+//void blockInput(HWND hWnd, int bState) {SendMessageA(hWnd,BlockInput(bState),0,0);}
+/*
 // Dunno wtf this is.
 int checkIconic(HWND hWnd)
 {
@@ -114,6 +114,7 @@ void sendKeyString( HWND hWnd, const char szKey[] )
 	}
     }
 }
+*/
 
 HWND wnd=NULL;
 
@@ -144,7 +145,6 @@ void getWindow()
 	printf("EnumWindows returned: %d\n",  EnumWindows(EnumWindowsProc, 0));
 	printf("wnd==%x\n", wnd);
 }
-
 void sendKey( HWND hWnd, UINT vKey )
 {
 	// PostMessage returns instantly, SendMessage waits for response?

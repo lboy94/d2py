@@ -18,6 +18,7 @@
 			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="2"
+			CharacterSet="2"
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
@@ -36,6 +37,8 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
+				WarningLevel="1"
+				CompileAs="2"
 			/>
 			<Tool
 				Name="VCManagedResourceCompilerTool"
@@ -49,6 +52,8 @@
 			<Tool
 				Name="VCLinkerTool"
 				OutputFile="..\..\python\d2py.dll"
+				GenerateDebugInformation="true"
+				ProgramDatabaseFile="..\..\python\d2py.pdb"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -113,6 +118,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				OutputFile="..\..\python\d2py.dll"
+				GenerateDebugInformation="false"
 			/>
 			<Tool
 				Name="VCALinkTool"

@@ -6,6 +6,8 @@ You must be in-game to do this.
 # Modifiers:
 #
 
+# Which skills are currently selected:
+selected = {True:'Unknown', False:'Unknown'}
 
 def select(skill, right=True):
     ''' Selects a skill.
@@ -17,6 +19,9 @@ EFFECTS: Selects the spell on the right if true, on the left if false.
     import core.data # Could do this check as an assertion: this would remove
     # it when __debug__ is set to false when invoking the interpreter.
     if not skill in core.data.skills: raise TypeError('no such skill:',skill)
+
+    if selected[right]==skill: return
+    else selected[right]=skill
 
     sideid = {True:0x0000, False:0x8000}
     s = sideid[side]
